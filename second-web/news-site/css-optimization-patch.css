@@ -1,0 +1,763 @@
+/**
+ * 新闻网站 CSS 优化补丁
+ * 包含所有性能、可访问性和用户体验相关的 CSS 优化
+ * 
+ * 使用方法：将此文件内容追加到 news-site.css 文件末尾
+ */
+
+/* ============================================ */
+/* 1. 可访问性优化 */
+/* ============================================ */
+
+/* 1.1 视觉隐藏但屏幕阅读器可读 */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 1.2 焦点样式增强 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+/* 1.3 跳过导航链接 */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-green);
+    color: var(--white);
+    padding: 8px 16px;
+    z-index: 100000;
+    transition: top 0.3s ease;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ============================================ */
+/* 2. 性能优化 */
+/* ============================================ */
+
+/* 2.1 GPU 加速动画 */
+.ticker-content {
+    will-change: transform;
+}
+
+.hero-news-card img {
+    will-change: transform;
+}
+
+.news-card-image img {
+    will-change: transform;
+}
+
+/* 2.2 减少重排重绘 */
+.news-card {
+    will-change: transform;
+}
+
+.category-tab {
+    will-change: background-color, color;
+}
+
+/* 2.3 骨架屏加载动画 */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--light-gray) 0%,
+        var(--medium-gray) 50%,
+        var(--light-gray) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-title {
+    height: 24px;
+    border-radius: var(--border-radius);
+    margin-bottom: 10px;
+}
+
+.skeleton-text {
+    height: 16px;
+    border-radius: var(--border-radius);
+    margin-bottom: 8px;
+}
+
+.skeleton-image {
+    height: 200px;
+    border-radius: var(--border-radius-lg);
+}
+
+/* ============================================ */
+/* 3. 移动端优化 */
+/* ============================================ */
+
+/* 3.1 触摸目标最小尺寸（WCAG 标准 44x44px） */
+.category-tab {
+    padding: 12px 20px;
+    min-height: 44px;
+}
+
+.view-options .view-btn {
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px 14px;
+}
+
+.share-btn {
+    min-width: 45px;
+    min-height: 45px;
+}
+
+/* 3.2 移动端滚动提示 */
+.category-tabs {
+    position: relative;
+    scrollbar-width: thin;
+}
+
+.category-tabs::-webkit-scrollbar {
+    height: 4px;
+}
+
+.category-tabs::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 2px;
+}
+
+.category-tabs::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 2px;
+}
+
+/* 3.3 触摸反馈 */
+@media (hover: none) and (pointer: coarse) {
+    .category-tab:active {
+        transform: scale(0.98);
+    }
+    
+    .news-card:active {
+        transform: scale(0.99);
+    }
+    
+    button:active {
+        transform: scale(0.98);
+    }
+}
+
+/* ============================================ */
+/* 4. 响应式断点优化 */
+/* ============================================ */
+
+/* 4.1 额外的小尺寸平板断点 */
+@media (max-width: 900px) {
+    .news-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .news-sidebar {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* 4.2 中等手机断点 */
+@media (max-width: 600px) {
+    .breaking-news {
+        padding: 8px 10px;
+        gap: 10px;
+    }
+    
+    .breaking-label {
+        font-size: 0.9rem;
+    }
+    
+    .news-container {
+        padding: 0 10px;
+    }
+    
+    .news-list-section {
+        padding: 15px;
+    }
+    
+    .section-header h2 {
+        font-size: 1.4rem;
+    }
+    
+    .category-tabs {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .category-tab {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .news-grid {
+        gap: 15px;
+    }
+    
+    .sidebar-widget {
+        padding: 15px;
+    }
+}
+
+/* 4.3 超大屏幕优化 */
+@media (min-width: 1600px) {
+    .news-container {
+        max-width: 1600px;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    }
+}
+
+/* ============================================ */
+/* 5. 打印样式优化 */
+/* ============================================ */
+
+@media print {
+    /* 隐藏不必要的元素 */
+    .navbar,
+    .breaking-news,
+    .news-search-section,
+    .category-tabs,
+    .view-options,
+    .pagination,
+    .news-sidebar,
+    .footer,
+    .share-buttons,
+    .newsletter-form,
+    .hamburger {
+        display: none !important;
+    }
+    
+    /* 优化打印布局 */
+    .news-main {
+        padding-top: 0;
+    }
+    
+    .news-container {
+        display: block;
+    }
+    
+    .news-content {
+        width: 100%;
+    }
+    
+    /* 优化文字 */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: #000;
+        background: #fff;
+    }
+    
+    .news-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #000;
+        margin-bottom: 20px;
+    }
+    
+    /* 优化图片 */
+    img {
+        max-width: 100%;
+        page-break-inside: avoid;
+    }
+    
+    /* 链接显示 */
+    a {
+        text-decoration: underline;
+    }
+    
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+    }
+}
+
+/* ============================================ */
+/* 6. 暗色模式支持 */
+/* ============================================ */
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-primary: #1a1a1a;
+        --bg-secondary: #2d2d2d;
+        --text-primary: #e0e0e0;
+        --text-secondary: #a0a0a0;
+    }
+    
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+    }
+    
+    .news-list-section,
+    .sidebar-widget {
+        background-color: var(--bg-secondary);
+    }
+    
+    .news-card {
+        background-color: var(--bg-secondary);
+    }
+    
+    .category-tab {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+    }
+    
+    .search-input {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        border-color: #444;
+    }
+}
+
+/* ============================================ */
+/* 7. 减少动画偏好 */
+/* ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .ticker-content {
+        animation: none;
+    }
+    
+    .breaking-news-ticker {
+        overflow: visible;
+    }
+    
+    .ticker-content {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+/* ============================================ */
+/* 8. 加载状态优化 */
+/* ============================================ */
+
+/* 8.1 按钮加载状态 */
+button.loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+button.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: button-spinner 0.8s linear infinite;
+}
+
+@keyframes button-spinner {
+    to { transform: rotate(360deg); }
+}
+
+/* 8.2 卡片加载状态 */
+.news-card.loading {
+    pointer-events: none;
+}
+
+.news-card.loading .news-card-content {
+    opacity: 0.5;
+}
+
+/* ============================================ */
+/* 9. 错误和空状态 */
+/* ============================================ */
+
+/* 9.1 空状态样式 */
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-light);
+}
+
+.empty-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.3;
+}
+
+.empty-state p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* 9.2 错误状态 */
+.error-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--accent-red);
+}
+
+.error-state i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+/* ============================================ */
+/* 10. 高对比度模式 */
+/* ============================================ */
+
+@media (prefers-contrast: high) {
+    :root {
+        --primary-green: #004d33;
+        --primary-green-light: #006a4e;
+        --medium-gray: #666;
+    }
+    
+    .news-card {
+        border-width: 2px;
+    }
+    
+    .category-tab {
+        border: 2px solid currentColor;
+    }
+    
+    button, a {
+        text-decoration: underline;
+    }
+}
+
+/* ============================================ */
+/* 11. 通知样式优化 */
+/* ============================================ */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOutRight {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+}
+
+.notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light));
+    color: var(--white);
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 100000;
+    animation: slideInRight 0.3s ease;
+    max-width: 400px;
+}
+
+.notification.error {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.notification.warning {
+    background: linear-gradient(135deg, #f39c12, #e67e22);
+}
+
+.notification.success {
+    background: linear-gradient(135deg, #27ae60, #229954);
+}
+
+/* ============================================ */
+/* 12. 滚动条美化 */
+/* ============================================ */
+
+/* Webkit 浏览器 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light-gray);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-green);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-green-dark);
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-green) var(--light-gray);
+}
+
+/* ============================================ */
+/* 13. 辅助功能增强 */
+/* ============================================ */
+
+/* 13.1 阅读模式 */
+.reading-mode {
+    font-size: 1.2rem;
+    line-height: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 13.2 字体大小调整 */
+.font-small {
+    font-size: 0.875rem;
+}
+
+.font-medium {
+    font-size: 1rem;
+}
+
+.font-large {
+    font-size: 1.125rem;
+}
+
+.font-x-large {
+    font-size: 1.25rem;
+}
+
+/* ============================================ */
+/* 14. 模态框优化 */
+/* ============================================ */
+
+.modal.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* 模态框打开时禁用背景滚动 */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* ============================================ */
+/* 15. 其他实用样式 */
+/* ============================================ */
+
+/* 15.1 文本截断辅助类 */
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.truncate-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.truncate-3-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* 15.2 响应式间距 */
+.responsive-padding {
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .responsive-padding {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-padding {
+        padding: 10px;
+    }
+}
+
+/* 15.3 容器最大宽度 */
+.container-max {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1400px) {
+    .container-max {
+        padding: 0 20px;
+    }
+}
+
+/* ============================================ */
+/* 16. 动画性能优化 */
+/* ============================================ */
+
+/* 使用 transform 代替 position 动画 */
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* 优化卡片悬停动画 */
+.news-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+/* ============================================ */
+/* 17. 颜色对比度增强 */
+/* ============================================ */
+
+/* 确保文字对比度符合 WCAG AA 标准 */
+.news-card-meta {
+    color: #555; /* 提高对比度 */
+}
+
+.widget-title {
+    color: var(--primary-green-dark); /* 加深颜色 */
+}
+
+.category-item-widget {
+    color: var(--text-dark);
+}
+
+.category-item-widget:hover {
+    color: var(--white);
+}
+
+/* ============================================ */
+/* 18. 键盘导航提示 */
+/* ============================================ */
+
+/* 键盘导航时的焦点指示 */
+.keyboard-navigation :focus {
+    outline: 3px solid var(--primary-green);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(0, 106, 78, 0.2);
+}
+
+/* ============================================ */
+/* 19. 触摸设备优化 */
+/* ============================================ */
+
+/* 禁用触摸设备的 hover 效果 */
+@media (hover: none) {
+    .news-card:hover {
+        transform: none;
+    }
+    
+    .category-tab:hover {
+        background: var(--light-gray);
+    }
+}
+
+/* ============================================ */
+/* 20. 国际化支持 */
+/* ============================================ */
+
+/* 从右到左语言支持（如阿拉伯语） */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] .news-sidebar {
+    margin-right: 0;
+}
+
+[dir="rtl"] .meta-item {
+    flex-direction: row-reverse;
+}
+
+/* ============================================ */
+/* 文档结束 */
+/* ============================================ */
+
+/**
+ * 使用说明：
+ * 
+ * 1. 将此文件内容追加到 news-site.css 末尾
+ * 2. 根据实际需要选择性使用部分优化
+ * 3. 在生产环境中，建议合并并压缩所有 CSS 文件
+ * 
+ * 优化类别：
+ * - 可访问性：焦点样式、屏幕阅读器支持
+ * - 性能：GPU 加速、减少重排
+ * - 移动端：触摸目标、响应式断点
+ * - 打印：打印样式优化
+ * - 暗色模式：支持系统暗色主题
+ * - 动画：减少运动偏好支持
+ * 
+ * 兼容性：
+ * - 现代浏览器（Chrome 80+, Firefox 75+, Safari 13+）
+ * - 部分特性需要渐进增强
+ */
