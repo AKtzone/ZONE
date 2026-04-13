@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="မင်းသိင်္ခ - 缅甸华侨设计师/开发者个人作品集网站。提供缅文、中文与英文的网页设计服务。Min Thant Kyaw - Myanmar Chinese web designer and developer portfolio.">
+    <meta name="keywords" content="网页设计, 网站开发, 缅甸设计师, 多语言网站, Web Design, Myanmar Designer, Multilingual Website">
+    <meta name="author" content="Min Thant Kyaw">
+    <meta name="robots" content="index, follow">
+    <title>မင်းသိင်္ခ - 敏廷凯 - Min Thant Kyaw | Web Designer & Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန်</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-lang-key="hero_title">မင်္ဂလာပါ၊ ကျွန်တော်က ဝဘ်ဒီဇိုင်နာပါ။</h1>
+            <p data-lang-key="hero_subtitle">မြန်မာ၊ တရုတ် နှင့် အင်္ဂလိပ် ဘာသာစကားများဖြင့် ဝဘ်စာမျက်နှာ ဒီဇိုင်းဆွဲပေးပါသည်။</p>
+            <button class="cta-button" data-lang-key="hero_button">ကျွန်ုပ်၏ လက်ရာများကို ကြည့်ရန်</button>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 data-lang-key="portfolio_title">လက်ရာများ</h2>
+            <div class="portfolio-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Corporate Website Design">
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang-key="project1_title">စက်မှုလုပ်ငန်းဆိုဒ်</h3>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p data-lang-key="project1_desc">မြန်မာဘာသာဖြင့် ဒီဇိုင်းဆွဲထားသော စက်မှုလုပ်ငန်းဝဘ်ဆိုဒ်</p>
+                        <a href="project-detail.html?id=corporate-website" class="project-btn" data-lang-key="project_button">အသေးစိတ်ကြည့်ရန်</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="E-commerce Website">
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang-key="project2_title">ဈေးဝယ်ဆိုဒ်</h3>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p data-lang-key="project2_desc">အဆင့်မြင့် ဈေးဝယ်ဝဘ်ဆိုဒ် ဒီဇိုင်း</p>
+                        <a href="shopping-site/shopping-site.html" class="project-btn" data-lang-key="project_button">အသေးစိတ်ကြည့်ရန်</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="News Portal Design">
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang-key="project3_title">သတင်းဆိုဒ်</h3>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p data-lang-key="project3_desc">ခေတ်မီသတင်းဝဘ်ဆိုဒ် ဒီဇိုင်း</p>
+                        <a href="news-site/news-site.html" class="project-btn" data-lang-key="project_button">အသေးစိတ်ကြည့်ရန်</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Education Website">
+                    </div>
+                    <div class="project-info">
+                        <h3 data-lang-key="project4_title">ပညာရေးဆိုဒ်</h3>
+                        <div class="tech-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p data-lang-key="project4_desc">ပညာရေးဆိုင်ရာ ဝဘ်ဆိုဒ် ဒီဇိုင်း</p>
+                        <a href="project-detail.html?id=education-website" class="project-btn" data-lang-key="project_button">အသေးစိတ်ကြည့်ရန်</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Profile Picture">
+                </div>
+                <div class="about-text">
+                    <h2 data-lang-key="about_title">ကျွန်ုပ်အကြောင်း</h2>
+                    <p data-lang-key="about_desc">ကျွန်တော်သည် မြန်မာနိုင်ငံမှ ဝဘ်ဒီဇိုင်နာတစ်ဦးဖြစ်ပါသည်။ မြန်မာ၊ တရုတ် နှင့် အင်္ဂလိပ်ဘာသာစကားများဖြင့် ဝဘ်ဆိုဒ်များ ဒီဇိုင်းဆွဲပေးနေပါသည်။ ခေတ်မီသော ဒီဇိုင်းများကို မြန်မာယဉ်ကျေးမှုနှင့် ပေါင်းစပ်ကာ ထူးခြားသော ဝဘ်အတွေ့အကြုံများ ဖန်တီးပေးပါသည်။ ကျွန်တော်၏ ဒီဇိုင်းများသည် အသုံးပြုသူများအတွက် လွယ်ကူပြီး ဆွဲဆောင်မှုရှိသော အတွေ့အကြုံများကို ဖန်တီးပေးရန် ရည်ရွယ်ပါသည်။</p>
+                    
+                    <div class="services">
+                        <h3 data-lang-key="services_title">ဆောင်ရွက်ပေးသော ဝန်ဆောင်မှုများ</h3>
+                        <div class="services-grid">
+                            <div class="service-item">
+                                <i class="fas fa-laptop-code"></i>
+                                <h4 data-lang-key="service1">ဝဘ်ဆိုဒ် ဒီဇိုင်း</h4>
+                                <p data-lang-key="service1_desc">ခေတ်မီသော ဝဘ်ဆိုဒ်များ ဒီဇိုင်းဆွဲပေးခြင်း</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h4 data-lang-key="service2">ဖုန်း App ဒီဇိုင်း</h4>
+                                <p data-lang-key="service2_desc">အသုံးပြုရလွယ်ကူသော မိုဘိုင်း App များ</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-language"></i>
+                                <h4 data-lang-key="service3">ဘာသာပြန်ဆိုခြင်း</h4>
+                                <p data-lang-key="service3_desc">မြန်မာ၊ တရုတ်၊ အင်္ဂလိပ် ဘာသာပြန်ဆိုမှုများ</p>
+                            </div>
+                            <div class="service-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <h4 data-lang-key="service4">UI/UX ဒီဇိုင်း</h4>
+                                <p data-lang-key="service4_desc">အသုံးပြုသူအတွေ့အကြုံ ဒီဇိုင်းများ</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3 data-lang-key="skills_title">ကျွမ်းကျင်မှုများ</h3>
+                    <div class="skills">
+                        <div class="skill">
+                            <div class="skill-header">
+                                <span data-lang-key="skill1">ဝဘ်ဒီဇိုင်း</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%" data-percentage="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-header">
+                                <span data-lang-key="skill2">မြန်မာစာစီစာ</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%" data-percentage="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-header">
+                                <span data-lang-key="skill3">ဘာသာပြန်ဆိုခြင်း</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%" data-percentage="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-header">
+                                <span data-lang-key="skill4">UI/UX ဒီဇိုင်း</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%" data-percentage="75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-header">
+                                <span data-lang-key="skill5">Frontend ဖွံ့ဖြိုးမှု</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 data-lang-key="contact_title">ဆက်သွယ်ရန်</h2>
+            <div class="contact-content">
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-lang-key="form_name">နာမည်</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-lang-key="form_email">အီးမေးလ်</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-lang-key="form_message">မက်ဆေ့ချ်</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" data-lang-key="form_submit">စာပို့ရန်</button>
+                </form>
+                
+                <div class="social-links">
+                    <h3 data-lang-key="social_title">လူမှုကွန်ယက်လင့်ခ်များ</h3>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" title="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-key="footer_text">© ၂၀၂၅ မင်းသိင်္ခ။ မူပိုင်ခွင့်များ ခြွင်းချက်ထားရှိသည်။</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

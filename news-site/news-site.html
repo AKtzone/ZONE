@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="新闻网站 - 现代化新闻门户网站设计，提供多语言支持">
+    <meta name="keywords" content="新闻网站，门户网站，新闻媒体">
+    <meta name="author" content="Min Thant Kyaw">
+    <title>新闻网站 | 敏廷凯 - Min Thant Kyaw</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="news-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 添加 DOMPurify 用于 XSS 防护 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" 
+            crossorigin="anonymous" 
+            referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" style="text-decoration: none;">
+                    <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" role="menubar" id="nav-menu">
+                <li role="none"><a href="../index.html#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="../index.html#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="../index.html#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="../index.html#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန်</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 新闻网站主体内容 -->
+    <main class="news-main">
+        <!-- 顶部头条新闻 -->
+        <section class="breaking-news">
+            <div class="breaking-label">
+                <i class="fas fa-bolt"></i>
+                <span data-lang-key="breaking_news">突发新闻</span>
+            </div>
+            <div class="breaking-news-ticker">
+                <div class="ticker-content" id="breaking-news-content">
+                    <!-- 突发新闻将动态加载 -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 主内容区 -->
+        <div class="news-container">
+            <!-- 左侧主要内容 -->
+            <div class="news-content">
+                <!-- 头条新闻 -->
+                <section class="hero-news">
+                    <div class="hero-news-card" id="hero-news">
+                        <!-- 头条新闻将动态加载 -->
+                    </div>
+                </section>
+
+                <!-- 搜索栏 -->
+                <section class="news-search-section">
+                    <div class="search-box">
+                        <input type="text" id="news-search-input" class="search-input" data-lang-key="search_news_placeholder" placeholder="搜索新闻...">
+                        <button class="search-btn" id="news-search-btn" aria-label="Search News">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- 分类标签 -->
+                <section class="category-tabs">
+                    <button class="category-tab active" data-category="all" data-lang-key="all_categories">全部</button>
+                    <button class="category-tab" data-category="politics" data-lang-key="category_politics">政治</button>
+                    <button class="category-tab" data-category="economy" data-lang-key="category_economy">经济</button>
+                    <button class="category-tab" data-category="technology" data-lang-key="category_technology">科技</button>
+                    <button class="category-tab" data-category="sports" data-lang-key="category_sports">体育</button>
+                    <button class="category-tab" data-category="entertainment" data-lang-key="category_entertainment">娱乐</button>
+                    <button class="category-tab" data-category="health" data-lang-key="category_health">健康</button>
+                </section>
+
+                <!-- 新闻列表 -->
+                <section class="news-list-section">
+                    <div class="section-header">
+                        <h2 data-lang-key="latest_news">最新新闻</h2>
+                        <div class="view-options">
+                            <button class="view-btn active" data-view="grid" aria-label="Grid View">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="view-btn" data-view="list" aria-label="List View">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="news-grid" id="news-grid">
+                        <!-- 新闻将通过 JavaScript 动态加载 -->
+                    </div>
+                    
+                    <!-- 分页导航 -->
+                    <div class="pagination" id="pagination">
+                        <!-- 分页将动态加载 -->
+                    </div>
+                </section>
+            </div>
+
+            <!-- 右侧边栏 -->
+            <aside class="news-sidebar">
+                <!-- 热门新闻 -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title" data-lang-key="hot_news">热门新闻</h3>
+                    <div class="hot-news-list" id="hot-news-list">
+                        <!-- 热门新闻将动态加载 -->
+                    </div>
+                </div>
+
+                <!-- 新闻分类 -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title" data-lang-key="categories">分类</h3>
+                    <div class="category-list-widget">
+                        <a href="#" class="category-item-widget" data-category="all">
+                            <i class="fas fa-globe"></i>
+                            <span data-lang-key="all_categories">全部</span>
+                            <span class="count">全部</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="politics">
+                            <i class="fas fa-landmark"></i>
+                            <span data-lang-key="category_politics">政治</span>
+                            <span class="count">12</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="economy">
+                            <i class="fas fa-chart-line"></i>
+                            <span data-lang-key="category_economy">经济</span>
+                            <span class="count">15</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="technology">
+                            <i class="fas fa-microchip"></i>
+                            <span data-lang-key="category_technology">科技</span>
+                            <span class="count">18</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="sports">
+                            <i class="fas fa-futbol"></i>
+                            <span data-lang-key="category_sports">体育</span>
+                            <span class="count">10</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="entertainment">
+                            <i class="fas fa-film"></i>
+                            <span data-lang-key="category_entertainment">娱乐</span>
+                            <span class="count">14</span>
+                        </a>
+                        <a href="#" class="category-item-widget" data-category="health">
+                            <i class="fas fa-heartbeat"></i>
+                            <span data-lang-key="category_health">健康</span>
+                            <span class="count">8</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 订阅通讯 -->
+                <div class="sidebar-widget">
+                    <h3 class="widget-title" data-lang-key="newsletter">订阅通讯</h3>
+                    <div class="newsletter-form">
+                        <p data-lang-key="newsletter_desc">订阅我们的每日新闻摘要</p>
+                        <input type="email" class="newsletter-input" data-lang-key="enter_email" placeholder="输入您的邮箱">
+                        <button class="newsletter-btn" data-lang-key="subscribe">订阅</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- 新闻详情模态框 -->
+    <div class="modal news-modal" id="news-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <article class="news-article">
+                <header class="article-header">
+                    <div class="article-category" id="article-category">
+                        <i class="fas fa-tag"></i>
+                        <span>分类</span>
+                    </div>
+                    <h1 class="article-title" id="article-title"></h1>
+                    <div class="article-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-user"></i>
+                            <span id="article-author"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span id="article-date"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-eye"></i>
+                            <span id="article-views"></span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-comment"></i>
+                            <span id="article-comments"></span>
+                        </div>
+                    </div>
+                </header>
+                <div class="article-featured-image">
+                    <img id="article-featured-image" src="" alt="新闻图片">
+                </div>
+                <div class="article-content" id="article-content">
+                    <!-- 文章内容将动态加载 -->
+                </div>
+                <div class="article-tags" id="article-tags">
+                    <!-- 标签将动态加载 -->
+                </div>
+                <div class="article-share">
+                    <h4 data-lang-key="share_article">分享文章</h4>
+                    <div class="share-buttons">
+                        <button class="share-btn facebook" aria-label="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="share-btn twitter" aria-label="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="share-btn wechat" aria-label="Share on WeChat">
+                            <i class="fab fa-weixin"></i>
+                        </button>
+                        <button class="share-btn link" aria-label="Copy Link">
+                            <i class="fas fa-link"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-key="footer_text">© 2025 敏廷凯 版权所有。</p>
+        </div>
+    </footer>
+
+    <script src="../translations.js"></script>
+    <script src="news-site.js"></script>
+</body>
+</html>

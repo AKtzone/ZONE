@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="购物网站 - 高级购物网站设计，提供多语言支持">
+    <meta name="keywords" content="购物网站，电子商务，在线购物">
+    <meta name="author" content="Min Thant Kyaw">
+    <title>购物网站 | 敏廷凯 - Min Thant Kyaw</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="shopping-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" style="text-decoration: none;">
+                    <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" role="menubar" id="nav-menu">
+                <li role="none"><a href="../index.html#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="../index.html#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="../index.html#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="../index.html#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန်</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 购物网站主体内容 -->
+    <main class="shopping-main">
+        <!-- 左侧分类导航 -->
+        <aside class="category-sidebar">
+            <div class="category-header">
+                <h3 data-lang-key="shop_categories">分类导航</h3>
+                <button class="category-toggle" aria-label="Toggle Categories">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="category-content">
+                <nav class="category-nav">
+                    <ul class="category-list" id="category-list">
+                        <!-- 分类将通过 JavaScript 动态加载 -->
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <div class="main-content">
+            <!-- 搜索和工具栏 -->
+            <div class="toolbar">
+                <div class="search-section">
+                    <div class="search-box">
+                        <input type="text" id="search-input" class="search-input" data-lang-key="search_placeholder" placeholder="搜索商品...">
+                        <button class="search-btn" id="search-btn" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="search-history" id="search-history">
+                        <!-- 搜索历史将动态加载 -->
+                    </div>
+                </div>
+                <div class="toolbar-actions">
+                    <div class="view-mode-toggle">
+                        <button class="view-btn active" data-view="grid" aria-label="Grid View">
+                            <i class="fas fa-th-large"></i>
+                        </button>
+                        <button class="view-btn" data-view="list" aria-label="List View">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                    <select class="sort-select" id="sort-select">
+                        <option value="default" data-lang-key="sort_default">默认排序</option>
+                        <option value="price-asc" data-lang-key="sort_price_asc">价格从低到高</option>
+                        <option value="price-desc" data-lang-key="sort_price_desc">价格从高到低</option>
+                        <option value="rating" data-lang-key="sort_rating">评分最高</option>
+                        <option value="sales" data-lang-key="sort_sales">销量最高</option>
+                    </select>
+                    <button class="cart-icon-btn" id="cart-toggle" aria-label="Shopping Cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </button>
+                    <button class="user-icon-btn" id="user-toggle" aria-label="User Account">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 商品展示区 -->
+            <section class="products-section">
+                <div class="products-header">
+                    <h2 data-lang-key="products_title">全部商品</h2>
+                    <span class="products-count" id="products-count">0 件商品</span>
+                </div>
+                <div class="products-grid" id="products-grid">
+                    <!-- 商品将通过 JavaScript 动态加载 -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- 商品详情模态框 -->
+    <div class="modal product-modal" id="product-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-detail">
+                <div class="product-images">
+                    <div class="main-image">
+                        <img id="detail-main-image" src="" alt="商品图片">
+                    </div>
+                    <div class="thumbnail-images" id="thumbnail-images">
+                        <!-- 缩略图将动态加载 -->
+                    </div>
+                </div>
+                <div class="product-info-detail">
+                    <h2 id="detail-title" class="product-title"></h2>
+                    <div class="product-meta">
+                        <span class="product-rating" id="detail-rating">
+                            <i class="fas fa-star"></i>
+                            <span>0.0</span>
+                        </span>
+                        <span class="product-sales" id="detail-sales">销量：0</span>
+                        <span class="product-stock" id="detail-stock">库存：0</span>
+                    </div>
+                    <div class="product-price-detail">
+                        <span class="current-price" id="detail-price"></span>
+                        <span class="original-price" id="detail-original-price"></span>
+                    </div>
+                    <p id="detail-description" class="product-description"></p>
+                    <div class="product-options">
+                        <div class="option-group">
+                            <label data-lang-key="option_quantity">数量</label>
+                            <div class="quantity-selector">
+                                <button class="qty-btn minus" id="qty-minus">-</button>
+                                <input type="number" id="quantity-input" value="1" min="1" max="99">
+                                <button class="qty-btn plus" id="qty-plus">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="btn-add-cart" id="add-to-cart" data-lang-key="add_to_cart">加入购物车</button>
+                        <button class="btn-buy-now" id="buy-now" data-lang-key="buy_now">立即购买</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 购物车侧边栏 -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3 data-lang-key="shopping_cart">购物车</h3>
+            <button class="cart-close" id="cart-close" aria-label="Close Cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- 购物车项目将动态加载 -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span data-lang-key="total">总计</span>
+                <span class="total-price" id="cart-total-price"></span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn-clear-cart" id="clear-cart" data-lang-key="clear_cart">清空购物车</button>
+                <button class="btn-checkout" id="checkout-btn" data-lang-key="checkout">去结算</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户账户模态框 -->
+    <div class="modal user-modal" id="user-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="user-account">
+                <div class="user-tabs">
+                    <button class="tab-btn active" data-tab="login" data-lang-key="login">登录</button>
+                    <button class="tab-btn" data-tab="register" data-lang-key="register">注册</button>
+                    <button class="tab-btn" data-tab="profile" data-lang-key="profile" style="display: none;">个人信息</button>
+                </div>
+                
+                <!-- 登录表单 -->
+                <div class="tab-content active" id="login-tab">
+                    <form class="login-form">
+                        <div class="form-group">
+                            <label data-lang-key="username">用户名</label>
+                            <input type="text" id="login-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-lang-key="password">密码</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn-submit" data-lang-key="login_btn">登录</button>
+                    </form>
+                </div>
+                
+                <!-- 注册表单 -->
+                <div class="tab-content" id="register-tab">
+                    <form class="register-form">
+                        <div class="form-group">
+                            <label data-lang-key="username">用户名</label>
+                            <input type="text" id="register-username" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-lang-key="email">邮箱</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label data-lang-key="password">密码</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        <button type="submit" class="btn-submit" data-lang-key="register_btn">注册</button>
+                    </form>
+                </div>
+                
+                <!-- 个人信息 -->
+                <div class="tab-content" id="profile-tab">
+                    <div class="profile-info">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <h3 id="profile-username"></h3>
+                        </div>
+                        <div class="profile-menu">
+                            <button class="profile-menu-item" data-action="orders" data-lang-key="my_orders">我的订单</button>
+                            <button class="profile-menu-item" data-action="address" data-lang-key="my_address">收货地址</button>
+                            <button class="profile-menu-item" data-action="logout" data-lang-key="logout">退出登录</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 结算页面模态框 -->
+    <div class="modal checkout-modal" id="checkout-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="checkout-content">
+                <h2 data-lang-key="checkout_title">结算</h2>
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span data-lang-key="step_cart">购物车确认</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span data-lang-key="step_address">收货地址</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span data-lang-key="step_payment">支付方式</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <span data-lang-key="step_confirm">订单确认</span>
+                    </div>
+                </div>
+                
+                <!-- 步骤 1: 购物车确认 -->
+                <div class="checkout-step-content active" id="step-1">
+                    <div class="checkout-cart-items" id="checkout-cart-items">
+                        <!-- 购物车项目 -->
+                    </div>
+                </div>
+                
+                <!-- 步骤 2: 收货地址 -->
+                <div class="checkout-step-content" id="step-2">
+                    <div class="address-section">
+                        <div class="address-list" id="address-list">
+                            <!-- 地址列表 -->
+                        </div>
+                        <button class="btn-add-address" id="add-address-btn" data-lang-key="add_address">添加新地址</button>
+                    </div>
+                </div>
+                
+                <!-- 步骤 3: 支付方式 -->
+                <div class="checkout-step-content" id="step-3">
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="credit_card" checked>
+                            <span class="payment-label">
+                                <i class="fas fa-credit-card"></i>
+                                <span data-lang-key="credit_card">信用卡</span>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="wechat">
+                            <span class="payment-label">
+                                <i class="fab fa-weixin"></i>
+                                <span data-lang-key="wechat_pay">微信支付</span>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="alipay">
+                            <span class="payment-label">
+                                <i class="fab fa-alipay"></i>
+                                <span data-lang-key="alipay">支付宝</span>
+                            </span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="cod">
+                            <span class="payment-label">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <span data-lang-key="cod">货到付款</span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 步骤 4: 订单确认 -->
+                <div class="checkout-step-content" id="step-4">
+                    <div class="order-summary">
+                        <h3 data-lang-key="order_summary">订单摘要</h3>
+                        <div class="summary-items" id="summary-items">
+                            <!-- 订单项 -->
+                        </div>
+                        <div class="summary-totals">
+                            <div class="summary-row">
+                                <span data-lang-key="subtotal">小计</span>
+                                <span id="summary-subtotal"></span>
+                            </div>
+                            <div class="summary-row">
+                                <span data-lang-key="shipping">运费</span>
+                                <span id="summary-shipping"></span>
+                            </div>
+                            <div class="summary-row total">
+                                <span data-lang-key="total">总计</span>
+                                <span id="summary-total"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="checkout-actions">
+                    <button class="btn-back" id="checkout-back" data-lang-key="back">上一步</button>
+                    <button class="btn-next" id="checkout-next" data-lang-key="next">下一步</button>
+                    <button class="btn-submit-order" id="submit-order" data-lang-key="submit_order" style="display: none;">提交订单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-key="footer_text">© 2025 敏廷凯 版权所有。</p>
+        </div>
+    </footer>
+
+    <script src="../translations.js"></script>
+    <script src="shopping-site.js"></script>
+</body>
+</html>

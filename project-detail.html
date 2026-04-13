@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="企业官网项目详情 - 展示企业官网项目的完整信息，包括项目概述、功能特点、技术架构等">
+    <meta name="keywords" content="企业官网,项目详情,网站开发,网页设计">
+    <meta name="author" content="Min Thant Kyaw">
+    <meta name="robots" content="index, follow">
+    <title>企业官网项目详情 | 敏廷凯 - Min Thant Kyaw</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="project-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading" class="loading-overlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p data-lang-key="loading">加载中...</p>
+        </div>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" style="text-decoration: none;">
+                    <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" role="menubar">
+                <li role="none"><a href="../index.html#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="../index.html#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="../index.html#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="../index.html#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန်</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 项目详情内容 -->
+    <main class="project-detail">
+        <!-- 面包屑导航 -->
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+                <li><a href="index.html" data-lang-key="breadcrumb_home">首页</a></li>
+                <li><a href="index.html#portfolio" data-lang-key="breadcrumb_portfolio">作品集</a></li>
+                <li aria-current="page"><span data-lang-key="project_detail">项目详情</span></li>
+            </ol>
+        </nav>
+
+        <!-- 项目头部 -->
+        <section class="project-header">
+            <div class="container">
+                <div class="project-hero">
+                    <div class="project-image">
+                        <img id="project-image" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="项目预览图" loading="lazy">
+                        <div class="project-badge" data-lang-key="project_type">企业官网</div>
+                    </div>
+                    <div class="project-info">
+                        <h1 id="project-title" class="project-title">企业官网项目</h1>
+                        <p id="project-overview" class="project-overview">这是一个现代化的企业官网项目，采用响应式设计，支持多语言切换，为企业提供专业的在线展示平台。</p>
+                        <div class="project-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-calendar"></i>
+                                <span id="project-date">2024年1月</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-clock"></i>
+                                <span id="project-duration">3个月</span>
+                            </div>
+                            <div class="meta-item">
+                                <i class="fas fa-tags"></i>
+                                <span id="project-category">企业网站</span>
+                            </div>
+                        </div>
+                        <div class="project-actions">
+                            <a href="#" class="btn-primary" data-lang-key="view_live">查看在线演示</a>
+                            <a href="index.html#portfolio" class="btn-secondary" data-lang-key="back_portfolio">返回作品集</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 项目详情内容区域 -->
+        <section class="project-content">
+            <div class="container">
+                <!-- 项目概述 -->
+                <section class="content-section" id="overview">
+                    <h2 data-lang-key="project_overview">项目概述</h2>
+                    <div class="section-content">
+                        <p id="overview-content">本项目是为一家跨国企业设计的官方网站，旨在展示企业形象、产品服务和最新动态。网站采用现代化的设计语言，结合企业品牌色彩，打造专业、可信的在线展示平台。项目历时3个月完成，从需求分析到最终上线，全程采用敏捷开发流程。</p>
+                    </div>
+                </section>
+
+                <!-- 功能特点 -->
+                <section class="content-section" id="features">
+                    <h2 data-lang-key="project_features">功能特点</h2>
+                    <div class="section-content">
+                        <div id="features-content" class="features-grid">
+                            <div class="feature-item">
+                                <h3 data-lang-key="feature1_title">响应式设计</h3>
+                                <p data-lang-key="feature1_desc">适配各种设备屏幕，确保在手机、平板和电脑上都有良好的浏览体验。</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3 data-lang-key="feature2_title">多语言支持</h3>
+                                <p data-lang-key="feature2_desc">支持缅文、中文和英文三种语言，满足不同地区用户的需求。</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3 data-lang-key="feature3_title">SEO优化</h3>
+                                <p data-lang-key="feature3_desc">采用搜索引擎优化技术，提高网站在搜索结果中的排名。</p>
+                            </div>
+                            <div class="feature-item">
+                                <h3 data-lang-key="feature4_title">快速加载</h3>
+                                <p data-lang-key="feature4_desc">优化图片和代码，确保页面快速加载，提升用户体验。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 技术架构 -->
+                <section class="content-section" id="technology">
+                    <h2 data-lang-key="project_technology">技术架构</h2>
+                    <div class="section-content">
+                        <div id="tech-content" class="tech-stack">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">JavaScript</span>
+                            <span class="tech-item">Font Awesome</span>
+                            <span class="tech-item">Google Fonts</span>
+                            <span class="tech-item">Responsive Design</span>
+                            <span class="tech-item">SEO Optimization</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 设计亮点 -->
+                <section class="content-section" id="design">
+                    <h2 data-lang-key="project_design">设计亮点</h2>
+                    <div class="section-content">
+                        <div id="design-content" class="design-highlights">
+                            <div class="design-item">
+                                <i class="fas fa-palette"></i>
+                                <h3 data-lang-key="design1_title">现代化设计</h3>
+                                <p data-lang-key="design1_desc">采用扁平化设计风格，简洁大方，符合现代审美趋势。</p>
+                            </div>
+                            <div class="design-item">
+                                <i class="fas fa-mobile-alt"></i>
+                                <h3 data-lang-key="design2_title">移动优先</h3>
+                                <p data-lang-key="design2_desc">采用移动优先的设计理念，确保在移动设备上的最佳体验。</p>
+                            </div>
+                            <div class="design-item">
+                                <i class="fas fa-users"></i>
+                                <h3 data-lang-key="design3_title">用户体验</h3>
+                                <p data-lang-key="design3_desc">注重用户体验设计，提供直观易用的界面和流畅的交互。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 实施过程 -->
+                <section class="content-section" id="process">
+                    <h2 data-lang-key="project_process">实施过程</h2>
+                    <div class="section-content">
+                        <div id="process-content" class="process-timeline">
+                            <div class="process-step">
+                                <h3 data-lang-key="process1_title">需求分析</h3>
+                                <p data-lang-key="process1_desc">与企业沟通，明确项目需求和目标，制定详细的项目计划。</p>
+                            </div>
+                            <div class="process-step">
+                                <h3 data-lang-key="process2_title">设计阶段</h3>
+                                <p data-lang-key="process2_desc">创建网站原型和视觉设计，与企业确认设计方案。</p>
+                            </div>
+                            <div class="process-step">
+                                <h3 data-lang-key="process3_title">开发实现</h3>
+                                <p data-lang-key="process3_desc">按照设计稿进行前端开发，实现所有功能模块。</p>
+                            </div>
+                            <div class="process-step">
+                                <h3 data-lang-key="process4_title">测试优化</h3>
+                                <p data-lang-key="process4_desc">进行全面测试，优化性能和用户体验。</p>
+                            </div>
+                            <div class="process-step">
+                                <h3 data-lang-key="process5_title">上线部署</h3>
+                                <p data-lang-key="process5_desc">将网站部署到服务器，完成最终上线。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 成果展示 -->
+                <section class="content-section" id="results">
+                    <h2 data-lang-key="project_results">成果展示</h2>
+                    <div class="section-content">
+                        <div id="results-content" class="results-gallery">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="首页设计">
+                                <div class="gallery-caption">
+                                    <span data-lang-key="result1_title">首页设计</span>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="产品页面">
+                                <div class="gallery-caption">
+                                    <span data-lang-key="result2_title">产品页面</span>
+                                </div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="移动端适配">
+                                <div class="gallery-caption">
+                                    <span data-lang-key="result3_title">移动端适配</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Min Thant Kyaw. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="project-detail.js"></script>
+</body>
+</html>

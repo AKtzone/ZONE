@@ -1,0 +1,564 @@
+<!-- 
+  新闻网站 HTML 优化补丁
+  包含所有高优先级的 HTML 结构优化
+  
+  使用方法：将以下修改应用到 news-site.html 文件中
+-->
+
+<!-- ============================================ -->
+<!-- 1. <head> 部分优化 -->
+<!-- ============================================ -->
+
+<!-- 在 <head> 标签内添加以下优化 -->
+
+<!-- 1.1 优化的 Title 标签 -->
+<title>缅甸新闻_最新时事_科技_经济_体育新闻 - 敏廷凯新闻网</title>
+
+<!-- 1.2 添加 Open Graph 标签 -->
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yoursite.com/news-site/">
+<meta property="og:title" content="缅甸新闻网 - 最新时事报道">
+<meta property="og:description" content="提供缅甸最新政治、经济、科技、体育新闻，支持缅文、中文、英文三语阅读">
+<meta property="og:image" content="https://yoursite.com/news-site/images/og-image.jpg">
+<meta property="og:locale" content="my_MM">
+<meta property="og:locale:alternate" content="zh_CN">
+<meta property="og:locale:alternate" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://yoursite.com/news-site/">
+<meta name="twitter:title" content="缅甸新闻网 - 最新时事报道">
+<meta name="twitter:description" content="提供缅甸最新政治、经济、科技、体育新闻">
+<meta name="twitter:image" content="https://yoursite.com/news-site/images/twitter-image.jpg">
+
+<!-- 1.3 添加结构化数据 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsMediaOrganization",
+  "name": "敏廷凯新闻网",
+  "url": "https://yoursite.com/news-site/",
+  "logo": "https://yoursite.com/logo.png",
+  "description": "提供缅甸最新政治、经济、科技、体育新闻",
+  "languages": ["my", "zh-CN", "en"],
+  "sameAs": [
+    "https://www.facebook.com/yoursite",
+    "https://twitter.com/yoursite"
+  ],
+  "potentialAction": {
+    "SearchAction": {
+      "target": "https://yoursite.com/news-site/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+}
+</script>
+
+<!-- 1.4 添加 DNS 预解析 -->
+<link rel="dns-prefetch" href="//images.unsplash.com">
+<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+<link rel="dns-prefetch" href="//fonts.googleapis.com">
+
+<!-- 1.5 添加预加载 -->
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+<!-- 1.6 外部资源添加完整性校验 -->
+<link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+      integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+      crossorigin="anonymous" 
+      referrerpolicy="no-referrer">
+
+<!-- 1.7 添加 DOMPurify（用于 XSS 防护） -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js" 
+        integrity="sha512-lHwOJLkHbGvqM7A5vGv70112" 
+        crossorigin="anonymous"></script>
+
+<!-- ============================================ -->
+<!-- 2. 导航栏优化 -->
+<!-- ============================================ -->
+
+<!-- 2.1 添加跳过导航链接（可访问性） -->
+<a href="#main-content" class="skip-link" style="
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-green);
+    color: white;
+    padding: 8px;
+    z-index: 100000;
+    transition: top 0.3s;
+">
+    跳到主要内容
+</a>
+
+<style>
+.skip-link:focus {
+    top: 0;
+}
+</style>
+
+<!-- 2.2 导航栏添加更多 ARIA 属性 -->
+<nav class="navbar" role="navigation" aria-label="主导航">
+    <!-- ... 现有内容 ... -->
+</nav>
+
+<!-- ============================================ -->
+<!-- 3. 主要内容区优化 -->
+<!-- ============================================ -->
+
+<!-- 3.1 添加主内容标识 -->
+<main class="news-main" id="main-content" role="main">
+
+<!-- 3.2 突发新闻栏添加 aria-live -->
+<section class="breaking-news" aria-label="突发新闻">
+    <div class="breaking-label">
+        <i class="fas fa-bolt"></i>
+        <span data-lang-key="breaking_news">突发新闻</span>
+    </div>
+    <div class="breaking-news-ticker">
+        <div class="ticker-content" 
+             id="breaking-news-content"
+             role="marquee"
+             aria-live="polite">
+            <!-- 突发新闻将动态加载 -->
+        </div>
+    </div>
+</section>
+
+<!-- 3.3 新闻容器添加区域标签 -->
+<div class="news-container">
+    <!-- 左侧主要内容 -->
+    <div class="news-content">
+        
+        <!-- 头条新闻 -->
+        <section class="hero-news" aria-label="头条新闻">
+            <div class="hero-news-card" id="hero-news" role="article">
+                <!-- 头条新闻将动态加载 -->
+            </div>
+        </section>
+
+        <!-- 搜索栏 -->
+        <section class="news-search-section" aria-label="新闻搜索">
+            <div class="search-box" role="search">
+                <label for="news-search-input" class="visually-hidden">搜索新闻</label>
+                <input type="text" 
+                       id="news-search-input" 
+                       class="search-input" 
+                       data-lang-key="search_news_placeholder" 
+                       placeholder="搜索新闻..."
+                       maxlength="100"
+                       autocomplete="off"
+                       aria-describedby="search-help">
+                <span id="search-help" class="visually-hidden">
+                    输入关键词搜索新闻，按回车键或点击搜索按钮
+                </span>
+                <button class="search-btn" 
+                        id="news-search-btn" 
+                        aria-label="搜索新闻"
+                        type="button">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- 分类标签 -->
+        <section class="category-tabs" aria-label="新闻分类导航">
+            <button class="category-tab active" 
+                    data-category="all" 
+                    data-lang-key="all_categories"
+                    aria-pressed="true"
+                    type="button">
+                全部
+            </button>
+            <button class="category-tab" 
+                    data-category="politics" 
+                    data-lang-key="category_politics"
+                    aria-pressed="false"
+                    type="button">
+                政治
+            </button>
+            <button class="category-tab" 
+                    data-category="economy" 
+                    data-lang-key="category_economy"
+                    aria-pressed="false"
+                    type="button">
+                经济
+            </button>
+            <button class="category-tab" 
+                    data-category="technology" 
+                    data-lang-key="category_technology"
+                    aria-pressed="false"
+                    type="button">
+                科技
+            </button>
+            <button class="category-tab" 
+                    data-category="sports" 
+                    data-lang-key="category_sports"
+                    aria-pressed="false"
+                    type="button">
+                体育
+            </button>
+            <button class="category-tab" 
+                    data-category="entertainment" 
+                    data-lang-key="category_entertainment"
+                    aria-pressed="false"
+                    type="button">
+                娱乐
+            </button>
+            <button class="category-tab" 
+                    data-category="health" 
+                    data-lang-key="category_health"
+                    aria-pressed="false"
+                    type="button">
+                健康
+            </button>
+        </section>
+
+        <!-- 新闻列表 -->
+        <section class="news-list-section" aria-label="新闻列表">
+            <div class="section-header">
+                <h1 data-lang-key="latest_news" style="font-size: 1.8rem; margin: 0;">最新新闻</h1>
+                <div class="view-options" role="group" aria-label="视图切换">
+                    <button class="view-btn active" 
+                            data-view="grid" 
+                            aria-label="网格视图"
+                            aria-pressed="true"
+                            type="button">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                    <button class="view-btn" 
+                            data-view="list" 
+                            aria-label="列表视图"
+                            aria-pressed="false"
+                            type="button">
+                        <i class="fas fa-list"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="news-grid" 
+                 id="news-grid"
+                 role="feed"
+                 aria-live="polite"
+                 aria-atomic="true"
+                 aria-label="新闻列表">
+                <!-- 新闻将通过 JavaScript 动态加载 -->
+            </div>
+            
+            <!-- 分页导航 -->
+            <div class="pagination" 
+                 id="pagination"
+                 role="navigation"
+                 aria-label="分页导航">
+                <!-- 分页将动态加载 -->
+            </div>
+        </section>
+    </div>
+
+    <!-- 右侧边栏 -->
+    <aside class="news-sidebar" aria-label="侧边栏 - 热门新闻和分类">
+        
+        <!-- 热门新闻 -->
+        <div class="sidebar-widget" role="complementary" aria-label="热门新闻">
+            <h3 class="widget-title" data-lang-key="hot_news">热门新闻</h3>
+            <div class="hot-news-list" 
+                 id="hot-news-list"
+                 role="list"
+                 aria-label="热门新闻列表">
+                <!-- 热门新闻将动态加载 -->
+            </div>
+        </div>
+
+        <!-- 新闻分类 -->
+        <div class="sidebar-widget" role="complementary" aria-label="新闻分类">
+            <h3 class="widget-title" data-lang-key="categories">分类</h3>
+            <div class="category-list-widget" role="list">
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="all"
+                   role="listitem"
+                   aria-label="查看全部新闻">
+                    <i class="fas fa-globe" aria-hidden="true"></i>
+                    <span data-lang-key="all_categories">全部</span>
+                    <span class="count" aria-label="文章数量">全部</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="politics"
+                   role="listitem"
+                   aria-label="查看政治新闻">
+                    <i class="fas fa-landmark" aria-hidden="true"></i>
+                    <span data-lang-key="category_politics">政治</span>
+                    <span class="count" aria-label="文章数量">12</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="economy"
+                   role="listitem"
+                   aria-label="查看经济新闻">
+                    <i class="fas fa-chart-line" aria-hidden="true"></i>
+                    <span data-lang-key="category_economy">经济</span>
+                    <span class="count" aria-label="文章数量">15</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="technology"
+                   role="listitem"
+                   aria-label="查看科技新闻">
+                    <i class="fas fa-microchip" aria-hidden="true"></i>
+                    <span data-lang-key="category_technology">科技</span>
+                    <span class="count" aria-label="文章数量">18</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="sports"
+                   role="listitem"
+                   aria-label="查看体育新闻">
+                    <i class="fas fa-futbol" aria-hidden="true"></i>
+                    <span data-lang-key="category_sports">体育</span>
+                    <span class="count" aria-label="文章数量">10</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="entertainment"
+                   role="listitem"
+                   aria-label="查看娱乐新闻">
+                    <i class="fas fa-film" aria-hidden="true"></i>
+                    <span data-lang-key="category_entertainment">娱乐</span>
+                    <span class="count" aria-label="文章数量">14</span>
+                </a>
+                <a href="#" 
+                   class="category-item-widget" 
+                   data-category="health"
+                   role="listitem"
+                   aria-label="查看健康新闻">
+                    <i class="fas fa-heartbeat" aria-hidden="true"></i>
+                    <span data-lang-key="category_health">健康</span>
+                    <span class="count" aria-label="文章数量">8</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- 订阅通讯 -->
+        <div class="sidebar-widget" role="complementary" aria-label="订阅通讯">
+            <h3 class="widget-title" data-lang-key="newsletter">订阅通讯</h3>
+            <div class="newsletter-form">
+                <p data-lang-key="newsletter_desc">订阅我们的每日新闻摘要</p>
+                <label for="newsletter-email" class="visually-hidden">邮箱地址</label>
+                <input type="email" 
+                       id="newsletter-email"
+                       class="newsletter-input" 
+                       data-lang-key="enter_email" 
+                       placeholder="输入您的邮箱"
+                       aria-describedby="newsletter-desc"
+                       required>
+                <span id="newsletter-desc" class="visually-hidden">
+                    输入您的邮箱地址订阅每日新闻摘要
+                </span>
+                <button class="newsletter-btn" 
+                        data-lang-key="subscribe"
+                        type="button"
+                        aria-label="订阅通讯">
+                    订阅
+                </button>
+            </div>
+        </div>
+    </aside>
+</div>
+
+</main>
+
+<!-- ============================================ -->
+<!-- 4. 新闻详情模态框优化 -->
+<!-- ============================================ -->
+
+<div class="modal news-modal" 
+     id="news-modal"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="article-title"
+     aria-describedby="article-content"
+     style="display: none;">
+    
+    <div class="modal-overlay" aria-hidden="true"></div>
+    
+    <div class="modal-content">
+        <button class="modal-close" 
+                aria-label="关闭详情"
+                type="button">
+            <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+        
+        <article class="news-article">
+            <header class="article-header">
+                <div class="article-category" id="article-category">
+                    <i class="fas fa-tag" aria-hidden="true"></i>
+                    <span>分类</span>
+                </div>
+                <h1 class="article-title" id="article-title"></h1>
+                <div class="article-meta" aria-label="文章元数据">
+                    <div class="meta-item">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <span id="article-author"></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar" aria-hidden="true"></i>
+                        <span id="article-date"></span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-eye" aria-hidden="true"></i>
+                        <span id="article-views"></span>
+                        <span class="visually-hidden">次浏览</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-comment" aria-hidden="true"></i>
+                        <span id="article-comments"></span>
+                        <span class="visually-hidden">条评论</span>
+                    </div>
+                </div>
+            </header>
+            
+            <figure class="article-featured-image">
+                <img id="article-featured-image" 
+                     src="" 
+                     alt=""
+                     loading="lazy">
+                <figcaption class="visually-hidden">新闻配图</figcaption>
+            </figure>
+            
+            <div class="article-content" 
+                 id="article-content"
+                 aria-label="文章内容">
+                <!-- 文章内容将动态加载 -->
+            </div>
+            
+            <div class="article-tags" 
+                 id="article-tags"
+                 aria-label="文章标签">
+                <!-- 标签将动态加载 -->
+            </div>
+            
+            <div class="article-share">
+                <h4 data-lang-key="share_article">分享文章</h4>
+                <div class="share-buttons" role="group" aria-label="分享选项">
+                    <button class="share-btn facebook" 
+                            aria-label="分享到 Facebook"
+                            type="button">
+                        <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                    </button>
+                    <button class="share-btn twitter" 
+                            aria-label="分享到 Twitter"
+                            type="button">
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                    </button>
+                    <button class="share-btn wechat" 
+                            aria-label="分享到微信"
+                            type="button">
+                        <i class="fab fa-weixin" aria-hidden="true"></i>
+                    </button>
+                    <button class="share-btn link" 
+                            aria-label="复制链接"
+                            type="button">
+                        <i class="fas fa-link" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- 5. 添加辅助类 -->
+<!-- ============================================ -->
+
+<style>
+/* 视觉隐藏但屏幕阅读器可读 */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* 焦点样式优化 */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+    outline: 3px solid var(--primary-green);
+    outline-offset: 2px;
+}
+
+/* 骨架屏加载样式 */
+.skeleton {
+    background: linear-gradient(
+        90deg,
+        var(--light-gray) 0%,
+        var(--medium-gray) 50%,
+        var(--light-gray) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.skeleton-title {
+    height: 24px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.skeleton-text {
+    height: 16px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.skeleton-image {
+    height: 200px;
+    border-radius: 8px;
+}
+</style>
+
+<!-- ============================================ -->
+<!-- 6. 添加缓存控制 -->
+<!-- ============================================ -->
+
+<meta http-equiv="Cache-Control" content="max-age=3600, public">
+<meta http-equiv="Expires" content="3600">
+
+<!-- ============================================ -->
+<!-- 7. 移动端优化 -->
+<!-- ============================================ -->
+
+<!-- 确保 viewport 设置正确 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<!-- 添加主题色 -->
+<meta name="theme-color" content="#006a4e">
+
+<!-- ============================================ -->
+<!-- 8. 性能优化 -->
+<!-- ============================================ -->
+
+<!-- 使用压缩版本的 CSS 和 JS（生产环境） -->
+<!-- <link rel="stylesheet" href="news-site.min.css"> -->
+<!-- <script src="news-site.min.js"></script> -->
+
+<!-- 或者使用原始版本（开发环境） -->
+<link rel="stylesheet" href="news-site.css">
+<script src="news-site.js"></script>
+
+<!-- 添加优化补丁脚本 -->
+<script src="optimization-patch.js"></script>
