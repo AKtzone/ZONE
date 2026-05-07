@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="企业官网 - 专业的在线展示平台，支持多语言切换">
+    <meta name="keywords" content="企业官网,品牌形象,产品展示,新闻动态">
+    <meta name="author" content="Min Thant Kyaw">
+    <title>企业官网 | 敏廷凯 - Min Thant Kyaw</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="corporate-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" style="text-decoration: none;">
+                    <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" role="menubar" id="nav-menu">
+                <li role="none"><a href="../index.html#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="../index.html#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="../index.html#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="../index.html#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="corporate-main">
+        <section class="corporate-hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 data-lang-key="corporate_hero_title">企业官网</h1>
+                <p data-lang-key="corporate_hero_subtitle">专业的在线展示平台</p>
+                <button class="cta-button" data-lang-key="corporate_learn_more">了解更多</button>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_about_title">关于我们</h2>
+                </div>
+                <div class="about-content">
+                    <p data-lang-key="corporate_about_desc">我们是一家专注于提供高品质企业服务的公司。凭借多年的行业经验和专业团队，我们致力于为客户提供最优质的解决方案。我们的使命是帮助企业实现数字化转型，提升品牌价值和市场竞争力。</p>
+                    <p data-lang-key="corporate_about_desc2">我们拥有专业的设计、开发和运营团队，能够为您提供全方位的企业服务，包括品牌形象设计、网站开发、营销推广等一站式解决方案。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_services_title">核心业务</h2>
+                </div>
+                <div class="services-grid" id="services-grid">
+                </div>
+            </div>
+        </section>
+
+        <section class="advantages-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_advantages_title">服务优势</h2>
+                </div>
+                <div class="advantages-grid">
+                    <div class="advantage-item">
+                        <div class="advantage-number">01</div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3 data-lang-key="corporate_advantage1">响应式设计</h3>
+                        <p data-lang-key="corporate_advantage1_desc">支持各种设备访问，随时随地展示企业形象</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-number">02</div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 data-lang-key="corporate_advantage2">多语言支持</h3>
+                        <p data-lang-key="corporate_advantage2_desc">支持多种语言，拓展国际市场</p>
+                    </div>
+                    <div class="advantage-item">
+                        <div class="advantage-number">03</div>
+                        <div class="advantage-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 data-lang-key="corporate_advantage3">SEO优化</h3>
+                        <p data-lang-key="corporate_advantage3_desc">优化搜索引擎排名，提升曝光度</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_tech_title">技术架构</h2>
+                </div>
+                <div class="tech-tags" id="tech-tags">
+                </div>
+            </div>
+        </section>
+
+        <section class="partners-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_partners_title">合作伙伴</h2>
+                </div>
+                <div class="partners-grid">
+                    <div class="partner-item">
+                        <i class="fas fa-building"></i>
+                        <span data-lang-key="corporate_partner1">合作伙伴 A</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-building"></i>
+                        <span data-lang-key="corporate_partner2">合作伙伴 B</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-building"></i>
+                        <span data-lang-key="corporate_partner3">合作伙伴 C</span>
+                    </div>
+                    <div class="partner-item">
+                        <i class="fas fa-building"></i>
+                        <span data-lang-key="corporate_partner4">合作伙伴 D</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="corporate_contact_title">联系我们</h2>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-lang-key="corporate_contact_address">地址</h4>
+                            <p>云南省昆明市xxx区xxx路xxx号</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-lang-key="corporate_contact_phone">电话</h4>
+                            <p>+86 123 4567 8900</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-lang-key="corporate_contact_email">邮箱</h4>
+                            <p>contact@company.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-key="footer_text">© 2024 敏廷凯 版权所有。</p>
+        </div>
+    </footer>
+
+    <script src="../translations.js"></script>
+    <script src="corporate-site.js"></script>
+</body>
+</html>

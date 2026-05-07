@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="my" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="教育学习平台 - 提供专业的在线教育服务，支持多语言切换">
+    <meta name="keywords" content="教育平台,在线学习,课程体系,学习路径">
+    <meta name="author" content="Min Thant Kyaw">
+    <title>教育学习平台 | 敏廷凯 - Min Thant Kyaw</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="school-site.css">
+    <link href="https://fonts.googleapis.com/css2?family=Myanmar+Text&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html" style="text-decoration: none;">
+                    <h1 data-lang-key="logo">မင်းသိင်္ခ</h1>
+                </a>
+            </div>
+            <ul class="nav-menu" role="menubar" id="nav-menu">
+                <li role="none"><a href="../index.html#home" data-lang-key="nav_home" role="menuitem">ပင်မစာမျက်နှာ</a></li>
+                <li role="none"><a href="../index.html#portfolio" data-lang-key="nav_portfolio" role="menuitem">လက်ရာများ</a></li>
+                <li role="none"><a href="../index.html#about" data-lang-key="nav_about" role="menuitem">ကျွန်ုပ်အကြောင်း</a></li>
+                <li role="none"><a href="../index.html#contact" data-lang-key="nav_contact" role="menuitem">ဆက်သွယ်ရန</a></li>
+            </ul>
+            <div class="language-switcher" role="group" aria-label="Language Selection">
+                <button class="lang-btn active" data-lang="my" aria-pressed="true" aria-label="Burmese Language">MY</button>
+                <button class="lang-btn" data-lang="cn" aria-pressed="false" aria-label="Chinese Language">CN</button>
+                <button class="lang-btn" data-lang="en" aria-pressed="false" aria-label="English Language">EN</button>
+            </div>
+            <button class="hamburger" aria-label="Toggle Menu" aria-expanded="false" aria-controls="nav-menu" type="button">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="school-main">
+        <section class="school-hero">
+            <div class="hero-content">
+                <h1 data-lang-key="school_hero_title">教育学习平台</h1>
+                <p data-lang-key="school_hero_subtitle">开启您的学习之旅，掌握未来技能</p>
+                <div class="hero-buttons">
+                    <button class="cta-button primary" data-lang-key="school_start_learning">开始学习</button>
+                    <button class="cta-button secondary" data-lang-key="school_learn_more">了解更多</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="courses-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_courses_title">课程体系</h2>
+                    <p data-lang-key="school_courses_desc">探索我们精心设计的课程，提升您的专业技能</p>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="course-search" placeholder="搜索课程..." data-lang-key="school_search_course">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="courses-grid" id="courses-grid">
+                </div>
+            </div>
+        </section>
+
+        <section class="resources-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_resources_title">教学资源中心</h2>
+                </div>
+                <div class="resources-grid">
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 data-lang-key="school_resource_video">教学视频</h3>
+                        <p data-lang-key="school_resource_video_desc">高清视频课程，随时随地学习</p>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3 data-lang-key="school_resource_ebook">电子教材</h3>
+                        <p data-lang-key="school_resource_ebook_desc">丰富的电子书籍资源</p>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-question"></i>
+                        </div>
+                        <h3 data-lang-key="school_resource_exam">习题库</h3>
+                        <p data-lang-key="school_resource_exam_desc">海量练习题，巩固知识</p>
+                    </div>
+                    <div class="resource-item">
+                        <div class="resource-icon">
+                            <i class="fas fa-external-link-alt"></i>
+                        </div>
+                        <h3 data-lang-key="school_resource_reference">参考文献</h3>
+                        <p data-lang-key="school_resource_reference_desc">精选参考资料</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="learning-path-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_learning_path_title">学习路径规划</h2>
+                </div>
+                <div class="learning-path">
+                    <div class="path-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3 data-lang-key="school_path_beginner">入门阶段</h3>
+                            <p data-lang-key="school_path_beginner_desc">零基础起步，建立扎实基础</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3 data-lang-key="school_path_intermediate">进阶阶段</h3>
+                            <p data-lang-key="school_path_intermediate_desc">深入学习，掌握核心技能</p>
+                        </div>
+                    </div>
+                    <div class="path-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="path-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3 data-lang-key="school_path_advanced">高级阶段</h3>
+                            <p data-lang-key="school_path_advanced_desc">精通技能，成为专业人才</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="solutions-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_solutions_title">教育解决方案</h2>
+                </div>
+                <div class="solutions-grid">
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3 data-lang-key="school_solution_k12">K12教育</h3>
+                        <p data-lang-key="school_solution_k12_desc">面向中小学的优质教育资源</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 data-lang-key="school_solution_vocational">职业教育</h3>
+                        <p data-lang-key="school_solution_vocational_desc">职业技能培训与认证</p>
+                    </div>
+                    <div class="solution-card">
+                        <div class="solution-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3 data-lang-key="school_solution_corporate">企业培训</h3>
+                        <p data-lang-key="school_solution_corporate_desc">定制化企业内训方案</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="assessment-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_assessment_title">学习评估系统</h2>
+                </div>
+                <div class="assessment-grid">
+                    <div class="assessment-item">
+                        <i class="fas fa-file-test"></i>
+                        <h3 data-lang-key="school_assessment_quiz">在线测验</h3>
+                    </div>
+                    <div class="assessment-item">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 data-lang-key="school_assessment_auto">自动评分</h3>
+                    </div>
+                    <div class="assessment-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3 data-lang-key="school_assessment_analysis">成绩分析</h3>
+                    </div>
+                    <div class="assessment-item">
+                        <i class="fas fa-file-report"></i>
+                        <h3 data-lang-key="school_assessment_report">学习报告</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="community-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-lang-key="school_community_title">师生互动社区</h2>
+                </div>
+                <div class="community-grid">
+                    <div class="community-item">
+                        <div class="community-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3 data-lang-key="school_community_discussion">讨论区</h3>
+                        <p data-lang-key="school_community_discussion_desc">与同学交流学习心得</p>
+                    </div>
+                    <div class="community-item">
+                        <div class="community-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3 data-lang-key="school_community_qna">问答板块</h3>
+                        <p data-lang-key="school_community_qna_desc">解答学习疑问</p>
+                    </div>
+                    <div class="community-item">
+                        <div class="community-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 data-lang-key="school_community_group">学习小组</h3>
+                        <p data-lang-key="school_community_group_desc">组队学习共同进步</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p data-lang-key="footer_text">© 2024 敏廷凯 版权所有。</p>
+        </div>
+    </footer>
+
+    <script src="../translations.js"></script>
+    <script src="school-site.js"></script>
+</body>
+</html>
